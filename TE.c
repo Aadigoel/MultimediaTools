@@ -5,7 +5,7 @@
 
 int a;
 char b[20],c;
-FILE *f1,*f2;
+FILE *f1;
 
 void Create_Overwrite();
 void Append();
