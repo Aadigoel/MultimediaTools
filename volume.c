@@ -8,7 +8,7 @@
 const int HEADER_SIZE = 44;
 
 //Change the name of the function below to volume.c
-int main()
+int volume()
 {
     char in[50], out[50];
     printf("Enter the input file\n");

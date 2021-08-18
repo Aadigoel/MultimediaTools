@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<process.h>
+#include <stdlib.h>
 
 int a;
 char b[20],c;
@@ -11,7 +12,8 @@ void Append();
 void Delete();
 void Display();
 
-void main()
+void TE()
+//void main()
 {
  do
  {

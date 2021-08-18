@@ -3,7 +3,8 @@
 #include <stdio_ext.h>
 #include "filter.h"
 
-int main()
+int filters()
+//int main()
 {
 
     // Define allowable filters
