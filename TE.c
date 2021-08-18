@@ -11,7 +11,7 @@ void Create_Overwrite();
 void Append();
 void Delete();
 void Display();
-
+void Find_Pattern();
 void TE()
 //void main()
 {
@@ -110,4 +110,62 @@ void Append()
   fputc(c,f1);
   }
   fclose(f1);
+}
+
+
+void Find_Pattern(){
+  printf("\n\tEnter the file name:");
+  scanf("%s",b);
+  char d[100];
+  printf("\n\tEnter the string:");
+  scanf("%s",d);
+  f1=fopen(b,"r");
+  if(f1==NULL)
+  {
+  printf("\n\tFile not found");
+  fclose(f1);
+  }
+  else
+  {
+  int l=1;
+  int i,w=0,count=0,back=0;
+  char c;
+  while((c=fgetc(f1))!=EOF)
+  {
+  if(c=='\n')
+  {
+  l++;
+  back=0;
+  }
+  if((c=='\t') || (c==' '))
+  {
+  if (back==1)
+  {
+  w++;
+  back=0;
+  }
+  }
+  else
+  {
+  back=1;
+  }
+  if(c==d[i])
+  {
+  if (i==(strlen(d)-1))
+  {
+  count++;
+  printf("\n\tThe input string occurs after the word %d in the line %d",w,l);
+  i=0;
+  }
+  i++;
+  }
+  else
+  i=0;
+  }
+  fclose(f1);
+  if (count==0)
+  printf("\n\tThe input string not found");
+  else
+  printf("\n\tThe input string appeared %d times",count);
+  } 
 }
