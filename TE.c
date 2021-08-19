@@ -128,7 +128,7 @@ void Find_Pattern(){
   else
   {
   int l=1;
-  int i,w=0,count=0,back=0;
+  int i=0,w=0,back=0,count=0,mark=0;
   char c;
   while((c=fgetc(f1))!=EOF)
   {
@@ -136,29 +136,34 @@ void Find_Pattern(){
   {
   l++;
   back=0;
+  mark=1;
   }
-  if((c=='\t') || (c==' '))
+  else if((c=='\t') || (c==' ') || (c==',') || (c==':') || (c==';') || (c=='/') || (c=='?')|| (c=='.'))
   {
   if (back==1)
   {
   w++;
   back=0;
   }
+  mark=1;
   }
   else
   {
   back=1;
+  mark=0;
   }
-  if(c==d[i])
+  if(i==strlen(d))
   {
-  if (i==(strlen(d)-1))
+  if(mark==1)
   {
   count++;
   printf("\n\tThe input string occurs after the word %d in the line %d",w,l);
+  }
   i=0;
   }
+  else{}  
+  if(c==d[i])
   i++;
-  }
   else
   i=0;
   }
@@ -168,4 +173,5 @@ void Find_Pattern(){
   else
   printf("\n\tThe input string appeared %d times",count);
   } 
+  
 }
